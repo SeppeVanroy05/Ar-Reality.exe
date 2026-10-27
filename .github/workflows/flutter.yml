@@ -1,0 +1,24 @@
+name: Flutter controles
+on:
+  push:
+  pull_request:
+jobs:
+  flutter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.0'
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+      - run: flutter build web --release
+      - name: Controleer AR-runner Dart-code
+        working-directory: ar_mobile
+        run: |
+          flutter pub get
+          flutter analyze
+# Een native AR-build vereist de gegenereerde Unity-export en wordt lokaal getest.

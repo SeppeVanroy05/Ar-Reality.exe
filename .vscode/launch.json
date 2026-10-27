@@ -1,0 +1,9 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "Flutter - Chrome", "request": "launch", "type": "dart",
+      "program": "lib/main.dart", "deviceId": "chrome" },
+    { "name": "Android - Unity AR (na export)", "request": "launch", "type": "dart",
+      "cwd": "ar_mobile", "program": "ar_mobile/lib/main.dart" }
+  ]
+}
