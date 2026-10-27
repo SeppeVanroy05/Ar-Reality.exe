@@ -85,7 +85,7 @@ Gebruik Unity-menu `REALITY > 2 - Controleer puzzels` voor de puzzelcontroles.
 - Voeg lokaal je Vuforia-sleutel toe, exporteer opnieuw en test op een Android-telefoon.
 - Volg de toesteltest in `docs/TESTEN.md` en noteer het resultaat.
 - Maak samen de uitleg en demonstreer dat jullie de code begrijpen.
-- Publiceer de lokale Git-repository naar jullie eigen GitHub-repository.
+- Werk samen via [de GitHub-repository](https://github.com/SeppeVanroy05/Ar-Reality.exe).
 
 Er is geen Firebase-account, online login, leaderboard of cloudopslag toegevoegd.
 Deze versie volgt het lokale-opslagidee uit jullie voorstel. De Flutter-interface

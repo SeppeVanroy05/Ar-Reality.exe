@@ -5,22 +5,22 @@ De buitenste projectmap is de Git-repository. Flutter en Unity staan samen in
 IDE-bestanden worden genegeerd. Unity `.meta`-bestanden worden juist wel bijgehouden:
 daarmee bewaart Unity de verwijzingen tussen scènes en scripts.
 
-## Naar GitHub
+## GitHub-repository
 
-Maak in jullie GitHub-account een lege repository aan, zonder README of gitignore.
-Voeg daarna de echte URL toe vanuit deze projectmap:
+De code staat op [SeppeVanroy05/Ar-Reality.exe](https://github.com/SeppeVanroy05/Ar-Reality.exe),
+op branch `main`. De lokale remote `origin` gebruikt SSH en is gekoppeld aan
+`git@github.com:SeppeVanroy05/Ar-Reality.exe.git`.
+
+De tweede student kan het project ophalen met:
 
 ```sh
-git remote add origin <url-van-jullie-repository>
-git push -u origin main
+git clone https://github.com/SeppeVanroy05/Ar-Reality.exe.git
+cd Ar-Reality.exe
 ```
 
-Vervang de tekst tussen `< >` door jullie echte URL. Er is nog geen remote
-gekoppeld; de bestaande repository is lokaal.
-
-De tweede student gebruikt daarna `git clone <url-van-jullie-repository>`.
 Na een clone moet Unity packages opnieuw importeren. Voor Android moet iedere
-student lokaal de Vuforia-sleutel toevoegen en de Unity-export maken.
+student lokaal de Vuforia-sleutel toevoegen en de Unity-export maken. De
+licentiesleutel en gegenereerde Unity-export worden niet naar GitHub gepusht.
 
 ## Werk per wijziging op een branch
 
