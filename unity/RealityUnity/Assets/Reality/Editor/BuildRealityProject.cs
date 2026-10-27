@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.SceneManagement;
 using UnityEngine.Rendering;
+using Vuforia;
 
 // Hulpmiddel om de beginscènes op te bouwen. Daarna kan je alles gewoon in de editor aanpassen.
 public static class BuildRealityProject
@@ -39,6 +40,8 @@ public static class BuildRealityProject
         settings.FindProperty("activeInputHandler").intValue = 1;
         settings.ApplyModifiedPropertiesWithoutUndo();
         AssetDatabase.SaveAssets();
+        if (File.Exists("Assets/StreamingAssets/Vuforia/REALITY_EXE.xml"))
+            DatabaseTargetSetup.ConfigureDatabase();
         Debug.Log("REALITY scenes klaar.");
     }
 
@@ -88,11 +91,20 @@ public static class BuildRealityProject
             var bootstrap = bridge.gameObject.AddComponent<ArBootstrap>();
             bootstrap.bridge = bridge;
             bootstrap.arCamera = camera;
-            bootstrap.targetImages = new[] {
-                AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Reality/Targets/stegosaurus.png"),
-                AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Reality/Targets/triceratops.png"),
-                AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Reality/Targets/tyrannosaurus.png")
-            };
+            bootstrap.imageTargets = new ImageTargetBehaviour[bridge.missions.Length];
+            for (int i = 0; i < bridge.missions.Length; i++)
+            {
+                var mission = bridge.missions[i];
+                var targetObject = new GameObject("ImageTarget_" + mission.glitchId);
+                var target = targetObject.AddComponent<ImageTargetBehaviour>();
+                target.ImageTargetType = ImageTargetType.PREDEFINED;
+                // Database en Image Target kies je na import van de unitypackage in de Inspector.
+                // Geen zelfgemaakte databasepaden of niet-bestaande doelgegevens invullen.
+                mission.transform.SetParent(target.transform, false);
+                var tracking = targetObject.AddComponent<TargetTracking>();
+                tracking.mission = mission;
+                bootstrap.imageTargets[i] = target;
+            }
         }
         EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(),
             "Assets/Reality/Scenes/" + (training ? "Training" : "RealityAR") + ".unity");

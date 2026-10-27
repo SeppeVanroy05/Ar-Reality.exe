@@ -22,7 +22,10 @@ Kies onderaan een missie en klik op de 3D-objecten. Deze oefenmodus bewaart
 geen Flutter-voortgang en gebruikt geen cameratracking.
 
 Voor de volledige Android-app volg je [Unity starten](docs/UNITY_STARTEN.md).
-Een export is lokaal aangemaakt, maar bevat nog geen persoonlijke Vuforia-sleutel.
+De database `REALITY_EXE` is aangemaakt in jullie Vuforia-account en zit al in het
+Unity-project. De drie Image Targets staan op **From Database**, met hun puzzels
+als child. Je hoeft deze database dus niet opnieuw aan te maken.
+Een export bevat nog geen persoonlijke Vuforia-sleutel.
 Voeg je eigen sleutel toe en exporteer opnieuw voordat je echte AR test.
 
 ## Wat staat er in het project?

@@ -49,7 +49,7 @@ en de `.meta` staan in `.gitignore`. Plak je sleutel niet in broncode of README.
 Zonder sleutel toont de mobiele app een foutmelding. Een export zonder sleutel
 is nuttig als buildcontrole, maar kan geen Vuforia-tracking uitvoeren.
 
-## Stap 4 — Begrijp de Image Targets
+## Stap 4 — Image Targets via Target Manager
 
 De drie PNG's staan in `Assets/Reality/Targets`. De volgorde is:
 
@@ -57,18 +57,39 @@ De drie PNG's staan in `Assets/Reality/Targets`. De volgorde is:
 2. triceratops → Gravity Error;
 3. tyrannosaurus → Entity Escaped.
 
-In de les voeg je Image Targets vaak via Target Manager en een database toe.
-Hier maakt `ArBootstrap` ze met `ObserverFactory.CreateImageTarget` rechtstreeks
-uit dezelfde afbeeldingen. Het blijft echte Vuforia Image Target Tracking.
-Dit bespaart de handmatige database-upload. Je hoeft geen .dat-bestand te maken.
+**Dit is al uitgevoerd:** de database REALITY_EXE is aangemaakt, de drie targets
+zijn Active en de database is geïmporteerd en aan de scène gekoppeld. De originele
+Unity-package staat in `unity/Database/REALITY_EXE.unitypackage`.
 
-`Read/Write` staat aan voor deze textures en compressie staat uit. De fysieke
-kaartbreedte is **20 cm**. Stel `printedWidthMeters` op het RealityBridge-object
-in de AR-scène anders in als je een andere breedte gebruikt. Meet de afbeelding
-zelf, niet het papier errond. Print met behoud van de oorspronkelijke verhouding.
-Bij een ander schermformaat kan de grootte van de virtuele inhoud afwijken.
+Hieronder staat hoe deze instellingen volgens de cursus zijn gemaakt, voor als
+je later zelf een kaart wilt vervangen:
 
-De bronafbeeldingen staan ook in de Flutter-map `assets/targets`.
+1. Open Vuforia Target Manager en maak een database **REALITY_EXE** van type **Device**.
+2. Voeg drie targets toe van type **Image**:
+
+| Afbeelding | Naam in Target Manager | Breedte |
+| --- | --- | --- |
+| `stegosaurus.png` | `glitch_001` | 0.20 |
+| `triceratops.png` | `glitch_002` | 0.20 |
+| `tyrannosaurus.png` | `glitch_003` | 0.20 |
+
+3. Wacht tot de targets **Active** zijn. Bekijk ook de herkenningskwaliteit.
+4. Download de database voor **Unity Editor** en importeer de `.unitypackage` in Unity.
+5. Open `Assets/Reality/Scenes/RealityAR.unity`.
+6. Selecteer `ImageTarget_glitch_001` in de Hierarchy.
+7. Kies in **Image Target Behaviour**: **Type: From Database**, **Database: REALITY_EXE**,
+   **Image Target: glitch_001**.
+8. Herhaal voor `ImageTarget_glitch_002` en `ImageTarget_glitch_003` met hun eigen targetnamen.
+9. De juiste 3D-puzzel staat al als child onder elk Image Target.
+10. Kies **REALITY > 4 - Controleer Image Target-database** en sla de scène op.
+
+De opgegeven breedte van 0.20 betekent **20 cm** voor de afbeelding zelf,
+niet voor het papier errond. Print zonder de verhouding van de afbeelding te veranderen.
+Gebruik je een andere fysieke breedte, pas dan de breedte in de targetinstellingen aan.
+
+De Image Targets worden niet meer via `ObserverFactory` tijdens het spelen aangemaakt.
+De scène bevat echte, bewerkbare Vuforia Image Target-componenten. De exportcontrole
+blokkeert een mobiele build wanneer de database of koppelingen ontbreken.
 
 ## Stap 5 — Controleer Android-instellingen
 

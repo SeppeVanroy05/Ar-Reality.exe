@@ -1,17 +1,29 @@
 using UnityEngine;
 using Vuforia;
 
-// Zet Vuforia aan en maak echte Image Targets met de drie afbeeldingen uit de les.
-// CreateImageTarget gebruikt hier de afbeelding rechtstreeks; er is geen .dat-database nodig.
+// Start Vuforia. De Image Targets staan al in de scene en komen uit Target Manager.
 public class ArBootstrap : MonoBehaviour
 {
     public RealityBridge bridge;
     public Camera arCamera;
-    public Texture2D[] targetImages;
-    public float printedWidthMeters = 0.20f;
+    public ImageTargetBehaviour[] imageTargets;
 
     private void Start()
     {
+        if (imageTargets == null || imageTargets.Length != bridge.missions.Length)
+        {
+            bridge.StartupError = "De Image Targets zijn niet correct gekoppeld in de Unity-scene.";
+            return;
+        }
+        foreach (var target in imageTargets)
+        {
+            if (target == null || target.ImageTargetType != ImageTargetType.PREDEFINED ||
+                string.IsNullOrWhiteSpace(target.TargetName))
+            {
+                bridge.StartupError = "Koppel elk Image Target aan de Vuforia-database in de Inspector.";
+                return;
+            }
+        }
         TextAsset license = Resources.Load<TextAsset>("vuforia-license");
         if (license == null || string.IsNullOrWhiteSpace(license.text))
         {
@@ -32,17 +44,7 @@ public class ArBootstrap : MonoBehaviour
 
     private void OnStarted()
     {
-        for (int i = 0; i < bridge.missions.Length; i++)
-        {
-            var mission = bridge.missions[i];
-            var target = VuforiaBehaviour.Instance.ObserverFactory.CreateImageTarget(
-                targetImages[i], printedWidthMeters, mission.glitchId);
-            mission.transform.SetParent(target.transform, false);
-            mission.transform.localPosition = Vector3.zero;
-            mission.transform.localRotation = Quaternion.identity;
-            var tracking = target.gameObject.AddComponent<TargetTracking>();
-            tracking.mission = mission;
-        }
+        // Vuforia gebruikt de Image Target-componenten die in de editor zijn ingesteld.
         bridge.Ready = true;
     }
 

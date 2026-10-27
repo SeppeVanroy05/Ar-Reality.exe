@@ -90,7 +90,7 @@ controle tegen verkeerde of dubbele callbacks, geen beveiliging tegen cheats.
 - `EntityMission`: beweegt het wezen en telt drie treffers.
 - `PointerInput`: muis/touch omzetten naar een 3D-raycast.
 - `TargetTracking`: trackingstatus doorgeven aan de puzzel.
-- `ArBootstrap`: Vuforia starten en Image Targets aanmaken.
+- `ArBootstrap`: Vuforia starten; de Image Targets staan vooraf ingesteld in de scène.
 - `RealityBridge`: starten vanuit Flutter en resultaten terugsturen.
 - `MissionHud`: kleine uitleg en voortgang binnen Unity.
 

@@ -57,12 +57,12 @@ Dit zijn ontwerpkeuzes voor dit project, geen algemene rangschikking van AR-tech
 | Vraag | Huidige bevinding | Nog te controleren |
 | --- | --- | --- |
 | Compileert de Unity-code? | Ja, met Unity 6000.3.24f1 en Vuforia 11.4.4 | Nieuwe wijzigingen opnieuw controleren |
-| Werken de puzzelregels? | Tien geautomatiseerde controles geslaagd | Volledige bediening in Play Mode |
+| Werken de puzzelregels? | Twintig geautomatiseerde controles geslaagd | Volledige bediening in Play Mode |
 | Kan Unity voor Flutter exporteren? | Android-export geslaagd met Flutter Embed | Cameraketen op echt toestel |
 | Hoe werkt de communicatie? | JSON met versie, missie en unieke sessie; Dart-contract getest | Callback van native Unity op toestel |
 | Hoe bewaren we voortgang? | SQLite met unieke missie-ID; tests slagen | Herstart van geïnstalleerde mobiele app |
 | Wat gebeurt bij trackingverlies? | Unity blokkeert tikken en verbergt 3D-inhoud | Verlies en herdetectie met echte kaart |
-| Herkent Vuforia de leskaarten voldoende? | Rechtstreekse Image Targets aangemaakt | Licht, hoek, afstand en kaartkwaliteit op toestel |
+| Herkent Vuforia de leskaarten voldoende? | Image Targets als From Database in de scène | Licht, hoek, afstand en kaartkwaliteit op toestel |
 
 ## Bronnen
 
@@ -72,7 +72,7 @@ Dit zijn ontwerpkeuzes voor dit project, geen algemene rangschikking van AR-tech
 - Embed Unity 2.0.0: https://pub.dev/packages/flutter_embed_unity/versions/2.0.0
 - Officieel pluginvoorbeeld: https://github.com/learntoflutter/flutter_embed_unity
 - Vuforia-package uit de les: https://github.com/mcloots/vuforia_package_11.4.4
-- Vuforia runtime-targets: https://developer.vuforia.com/library/vuforia-engine/images-and-objects/image-targets/instant-image-targets/
+- Image Targets volgens de cursus: https://itf-mobiledevelopment.netlify.app/vuforia/single-image-tracking
 - SQLite-plugin: https://pub.dev/packages/sqflite
 - Browseropslag: https://pub.dev/packages/shared_preferences
 

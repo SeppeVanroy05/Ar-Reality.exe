@@ -14,3 +14,8 @@
 - Vuforia 11.4.4 wordt als Unity-package opgehaald via de Git-repository uit de les,
   revisie `7df19420a497bf4bfd02dc9dfb2686a2e7012e35`.
 - Flutter, Unity, Vuforia en dependencies behouden hun eigen licenties en voorwaarden.
+
+- De database REALITY_EXE is op 27 oktober 2026 aangemaakt in het Vuforia-account
+  van de gebruiker. De originele export staat in `unity/Database`; de XML en DAT
+  zijn geïmporteerd onder `Assets/StreamingAssets/Vuforia`. Alle drie de targets
+  zijn in Target Manager Active en hebben een fysieke breedte van 0.20 meter.

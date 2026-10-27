@@ -39,10 +39,10 @@ het is meer dan een losse 3D-viewer.
 
 Voor de eerste versie gebruiken we de drie dinokaarten uit workshop 1 als
 herkenningskaarten. We koppelen deze aan onze eigen glitchmodellen. We maken de
-Image Targets rechtstreeks uit de afbeeldingen met Vuforia's ObserverFactory.
-Dit is dezelfde Image Target-techniek, met een andere instelling dan een
-vooraf gedownloade Target Manager-database. De trackingkwaliteit moet nog op
-een echte telefoon getest worden.
+Image Targets aan via **Vuforia Target Manager** en importeren de Unity-package.
+In de Unity-scène staat voor elke missie een Image Target met **Type: From Database**.
+De puzzel staat als child onder het bijbehorende Image Target, zoals in de cursus.
+De trackingkwaliteit moet nog op een echte telefoon getest worden.
 
 ## Welke data gebruikt de app?
 

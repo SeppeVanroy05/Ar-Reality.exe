@@ -47,15 +47,33 @@ public static class VerifyRealityProject
         entity.Stop();
         Check(EditorBuildSettings.scenes.Length == 1 &&
             EditorBuildSettings.scenes[0].path.EndsWith("RealityAR.unity"), "alleen AR-scene in export");
-        Debug.Log("REALITY TESTS PASSED: 10 controles.");
+        EditorSceneManager.OpenScene("Assets/Reality/Scenes/RealityAR.unity");
+        var bootstrap = UnityEngine.Object.FindFirstObjectByType<ArBootstrap>();
+        Check(bootstrap.imageTargets.Length == 3, "drie Image Targets in de editor");
+        for (int i = 0; i < 3; i++)
+        {
+            var target = bootstrap.imageTargets[i];
+            Check(target.ImageTargetType == Vuforia.ImageTargetType.PREDEFINED, "From Database ingesteld");
+            Check(bootstrap.bridge.missions[i].transform.parent == target.transform, "puzzel is child van target");
+            Check(target.GetComponent<TargetTracking>().mission == bootstrap.bridge.missions[i], "tracking gekoppeld");
+        }
+        DatabaseTargetSetup.RequireConfiguredTargets();
+        Debug.Log("REALITY TESTS PASSED: 20 controles en bestaande XML/DAT-database gecontroleerd.");
         // Open opnieuw zonder de testwijzigingen op te slaan.
         EditorSceneManager.OpenScene("Assets/Reality/Scenes/Training.unity");
+    }
+
+    public static void VerifyAndExport()
+    {
+        Verify();
+        PrepareAndroidExport();
     }
 
     public static void PrepareAndroidExport()
     {
         EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
         EditorSceneManager.OpenScene("Assets/Reality/Scenes/RealityAR.unity");
+        DatabaseTargetSetup.RequireConfiguredTargets();
         ProjectExporterBatchmode.ExportProjectAndroid();
     }
 }

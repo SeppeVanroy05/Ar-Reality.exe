@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="glitch_003" size="0.200000 0.123146" />
+    <ImageTarget name="glitch_002" size="0.200000 0.119560" />
+    <ImageTarget name="glitch_001" size="0.200000 0.121942" />
+  </Tracking>
+</QCARConfig>

@@ -11,7 +11,9 @@ Gecontroleerd op 27 oktober 2026.
 | `flutter test` | 9 tests geslaagd |
 | Flutter web releasebuild | Geslaagd |
 | Unity C#-compilatie met Vuforia 11.4.4 | Geslaagd |
-| Unity-puzzelcontroles | 10 controles geslaagd |
+| Unity-puzzel- en Image Target-controles | 20 controles geslaagd |
+| Target Manager-database REALITY_EXE | 3 targets Active; Unity-package gedownload en geïmporteerd |
+| Databasekoppeling in scène | From Database; targetnamen en fysieke afmetingen uit XML overgenomen |
 | Unity-export voor Android/Flutter | Geslaagd |
 | Android debug-APK met Unity | Gebouwd |
 | Flutter-browserbeelden op telefoonformaat | Visueel bekeken |
@@ -25,7 +27,8 @@ het herstarten van een geïnstalleerde app moet nog op toestel getest worden.
 
 De Unity-controles proberen de puzzelregels rechtstreeks. Ze controleren onder
 meer dubbele energietikken, trackingverlies, opnieuw spelen, de codevolgorde,
-het vangen van het wezen en de juiste exportscène. Ze bewijzen nog niet dat
+het vangen van het wezen, de juiste exportscène en de drie From Database-targets
+met hun child-puzzels. Ze bewijzen nog niet dat
 cameratracking, touchbediening en native callbacks op een telefoon werken.
 
 De 3D-previews zijn beelden uit de Unity-camera van de oefenscène. Het zijn geen
