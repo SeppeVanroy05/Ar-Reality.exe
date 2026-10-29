@@ -44,7 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-
 # Geneste Flutter-runner
 **/.dart_tool/
 **/.flutter-plugins-dependencies
@@ -77,3 +76,6 @@ ar_mobile/ios/unityLibrary/
 ar_mobile/ios/UnityFramework.framework/
 
 ar_mobile/ios/*.framework/
+
+# FVM Version Cache
+.fvm/
