@@ -1,9 +1,20 @@
 {
   "version": "0.2.0",
   "configurations": [
-    { "name": "Flutter - Chrome", "request": "launch", "type": "dart",
-      "program": "lib/main.dart", "deviceId": "chrome" },
-    { "name": "Android - Unity AR (na export)", "request": "launch", "type": "dart",
-      "cwd": "ar_mobile", "program": "ar_mobile/lib/main.dart" }
+    {
+      "name": "Mobiel - Unity AR (iPhone / Android)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "${workspaceFolder}/ar_mobile",
+      "program": "${workspaceFolder}/ar_mobile/lib/main.dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "Flutter-preview zonder AR - Chrome",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "deviceId": "chrome"
+    }
   ]
 }

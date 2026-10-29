@@ -1,5 +1,5 @@
 name: reality_ar
-description: REALITY.EXE met Unity en Vuforia voor Android.
+description: REALITY.EXE met Unity en Vuforia voor Android en iOS.
 publish_to: none
 version: 1.0.0+1
 environment:
@@ -18,3 +18,8 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 flutter:
   uses-material-design: true
+
+# Compatibiliteit van Unity 2.0.0 met Swift Package Manager.
+dependency_overrides:
+  flutter_embed_unity_2022_3_ios:
+    path: ../third_party/flutter_embed_unity_2022_3_ios

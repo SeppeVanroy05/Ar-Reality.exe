@@ -49,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
-  cupertino_icons:
-    dependency: transitive
-    description:
-      name: cupertino_icons
-      sha256: "41e005c33bd814be4d3096aff55b1908d419fde52ca656c8c47719ec745873cd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.9"
   fake_async:
     dependency: transitive
     description:
@@ -95,12 +87,11 @@ packages:
     source: hosted
     version: "2.0.0"
   flutter_embed_unity_2022_3_ios:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_embed_unity_2022_3_ios
-      sha256: f140d197069d2e7217579ebae5d4aa0964961d939c6343a01ae7d5a1474594fa
-      url: "https://pub.dev"
-    source: hosted
+      path: "../third_party/flutter_embed_unity_2022_3_ios"
+      relative: true
+    source: path
     version: "2.0.0"
   flutter_embed_unity_6000_0_android:
     dependency: "direct main"

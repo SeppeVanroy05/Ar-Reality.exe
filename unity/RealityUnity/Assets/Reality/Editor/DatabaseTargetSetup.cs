@@ -52,7 +52,7 @@ public class DatabaseTargetSetup : IPreprocessBuildWithReport
             float height = float.Parse(size[1], CultureInfo.InvariantCulture);
             var settings = new SerializedObject(target);
             settings.FindProperty("mImageTargetType").intValue = (int)ImageTargetType.PREDEFINED;
-            settings.FindProperty("mDataSetPath").stringValue = "Assets/StreamingAssets/Vuforia/REALITY_EXE.xml";
+            settings.FindProperty("mDataSetPath").stringValue = "Vuforia/REALITY_EXE.xml";
             settings.FindProperty("mTrackableName").stringValue = targetName;
             settings.FindProperty("mInitializedInEditor").boolValue = true;
             settings.FindProperty("mWidth").floatValue = width;
@@ -94,7 +94,9 @@ public class DatabaseTargetSetup : IPreprocessBuildWithReport
                 string.IsNullOrWhiteSpace(database) || string.IsNullOrWhiteSpace(name))
                 throw new BuildFailedException(target.name + ": importeer de Vuforia-database en kies " +
                     "Type: From Database, Database en Image Target in de Inspector. Zie docs/UNITY_STARTEN.md.");
-            // Vuforia kan het pad als projectpad of relatief aan StreamingAssets bewaren.
+            // Een editorpad bestaat niet op een telefoon. Gebruik een pad relatief aan StreamingAssets.
+            if (database.StartsWith("Assets/") || Path.IsPathRooted(database))
+                throw new BuildFailedException(target.name + ": gebruik Vuforia/REALITY_EXE.xml als runtime-databasepad.");
             string fullPath = Path.IsPathRooted(database) || database.StartsWith("Assets/")
                 ? database : Path.Combine(Application.streamingAssetsPath, database);
             if (!File.Exists(fullPath) || !File.Exists(Path.ChangeExtension(fullPath, ".dat")))

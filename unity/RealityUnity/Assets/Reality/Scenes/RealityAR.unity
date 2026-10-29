@@ -934,7 +934,7 @@ MonoBehaviour:
   RuntimeCollider: 0
   mTrackableName: glitch_001
   mInitializedInEditor: 1
-  mDataSetPath: Assets/StreamingAssets/Vuforia/REALITY_EXE.xml
+  mDataSetPath: Vuforia/REALITY_EXE.xml
   mAspectRatio: 0.60971
   mImageTargetType: 0
   mWidth: 0.2
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   RuntimeCollider: 0
   mTrackableName: glitch_002
   mInitializedInEditor: 1
-  mDataSetPath: Assets/StreamingAssets/Vuforia/REALITY_EXE.xml
+  mDataSetPath: Vuforia/REALITY_EXE.xml
   mAspectRatio: 0.5978
   mImageTargetType: 0
   mWidth: 0.2
@@ -1996,7 +1996,7 @@ MonoBehaviour:
   RuntimeCollider: 0
   mTrackableName: glitch_003
   mInitializedInEditor: 1
-  mDataSetPath: Assets/StreamingAssets/Vuforia/REALITY_EXE.xml
+  mDataSetPath: Vuforia/REALITY_EXE.xml
   mAspectRatio: 0.61573
   mImageTargetType: 0
   mWidth: 0.2

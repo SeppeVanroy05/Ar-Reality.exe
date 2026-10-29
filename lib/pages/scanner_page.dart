@@ -102,8 +102,7 @@ class _ScannerPageState extends State<ScannerPage> {
                 Text(
                   available
                       ? 'De camera opent in Unity. Geef cameratoegang wanneer daarom gevraagd wordt.'
-                      : 'Dit is de Flutter-versie zonder Unity. De echte scanner zit in de Android-app '
-                            'in ar_mobile. Je kunt hier wel alle missies en kaarten bekijken.',
+                      : 'Deze uitvoering bevat geen AR-camera. Open de mobiele AR-versie om kaarten te scannen. ',
                 ),
               ],
             ),
@@ -131,7 +130,7 @@ class _ScannerPageState extends State<ScannerPage> {
           borderRadius: BorderRadius.circular(16),
           child: Image.asset(
             'assets/targets/${_selected.targetFile}',
-            // In de Android-runner komen deze assets uit het gedeelde pakket.
+            // In de mobiele AR-versie komen deze assets uit het gedeelde pakket.
             package: widget.arPageBuilder == null ? null : 'reality_exe',
             height: 220,
             fit: BoxFit.contain,

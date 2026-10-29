@@ -71,3 +71,9 @@ ar_mobile/android/unityLibrary/
 *.keystore
 *.jks
 **/key.properties
+
+# Gegenereerde Unity-export voor iPhone
+ar_mobile/ios/unityLibrary/
+ar_mobile/ios/UnityFramework.framework/
+
+ar_mobile/ios/*.framework/

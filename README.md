@@ -22,6 +22,7 @@ Kies onderaan een missie en klik op de 3D-objecten. Deze oefenmodus bewaart
 geen Flutter-voortgang en gebruikt geen cameratracking.
 
 Voor de volledige Android-app volg je [Unity starten](docs/UNITY_STARTEN.md).
+Voor de volledige iPhone-app volg je [iPhone starten](docs/IPHONE_STARTEN.md).
 De database `REALITY_EXE` is aangemaakt in jullie Vuforia-account en zit al in het
 Unity-project. De drie Image Targets staan op **From Database**, met hun puzzels
 als child. Je hoeft deze database dus niet opnieuw aan te maken.
@@ -89,5 +90,6 @@ Gebruik Unity-menu `REALITY > 2 - Controleer puzzels` voor de puzzelcontroles.
 
 Er is geen Firebase-account, online login, leaderboard of cloudopslag toegevoegd.
 Deze versie volgt het lokale-opslagidee uit jullie voorstel. De Flutter-interface
-heeft Android-, iOS- en web-projectbestanden; de Unity-integratie is hier voor
-Android uitgewerkt. iOS AR is nog niet geconfigureerd of getest.
+heeft Android-, iOS- en web-projectbestanden; de Unity-integratie heeft nu ook een iOS-buildconfiguratie in `ar_mobile`.
+Op een echte iPhone zijn de camera, Vuforia-opstart en het laden van de drie Image Targets bevestigd.
+Mini Black Hole verschijnt boven de stegosauruskaart. De volledige puzzelafhandeling van alle missies moet nog worden getest.

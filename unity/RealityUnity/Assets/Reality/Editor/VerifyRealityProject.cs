@@ -76,4 +76,55 @@ public static class VerifyRealityProject
         DatabaseTargetSetup.RequireConfiguredTargets();
         ProjectExporterBatchmode.ExportProjectAndroid();
     }
+
+    public static void PrepareIosExport()
+    {
+        EditorSceneManager.OpenScene("Assets/Reality/Scenes/RealityAR.unity");
+        DatabaseTargetSetup.RequireConfiguredTargets();
+        UnityEditor.PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.iOS,
+            ScriptingImplementation.IL2CPP);
+        PlayerSettings.iOS.targetOSVersionString = "15.0";
+        PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
+        PlayerSettings.preserveFramebufferAlpha = true; // Render Over Native UI: vereist door Vuforia op iOS.
+        PlayerSettings.iOS.cameraUsageDescription = "REALITY.EXE gebruikt de camera om je kaarten te herkennen en AR-puzzels te tonen.";
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.iOS, false);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.iOS,
+            new[] { UnityEngine.Rendering.GraphicsDeviceType.Metal });
+#if UNITY_IOS
+        ConfigureIosRunner();
+#endif
+        ProjectExporterBatchmode.ExportProjectIos();
+    }
+
+#if UNITY_IOS
+    public static void ConfigureIosRunner()
+    {
+        var project = new UnityEditor.iOS.Xcode.PBXProject();
+        string path = Path.GetFullPath("../../ar_mobile/ios/Runner.xcodeproj/project.pbxproj");
+        project.ReadFromFile(path);
+        string runner = project.TargetGuidByName("Runner");
+        foreach (string framework in new[] { "UnityFramework.framework", "VuforiaEngine.framework", "UnityDriver.framework" })
+        {
+            string file = project.FindFileGuidByProjectPath(framework);
+            if (!string.IsNullOrEmpty(file)) continue;
+            file = project.AddFile(framework, framework, UnityEditor.iOS.Xcode.PBXSourceTree.Source);
+            project.AddFileToBuild(runner, file);
+            UnityEditor.iOS.Xcode.Extensions.PBXProjectExtensions.AddFileToEmbedFrameworks(project, runner, file);
+        }
+        // Vuforia zoekt op iOS in de appbundel. Unity-data zit in een apart framework.
+        // Neem de herkenningsdatabase daarom ook als map in de Runner-resources op.
+        const string databaseFolder = "Vuforia";
+        if (string.IsNullOrEmpty(project.FindFileGuidByProjectPath(databaseFolder)))
+        {
+            string folder = project.AddFolderReference(
+                "../../unity/RealityUnity/Assets/StreamingAssets/Vuforia",
+                databaseFolder, UnityEditor.iOS.Xcode.PBXSourceTree.Source);
+            project.AddFileToBuild(runner, folder);
+        }
+        project.AddBuildProperty(runner, "FRAMEWORK_SEARCH_PATHS", "$(PROJECT_DIR)");
+        project.SetBuildProperty(runner, "ENABLE_BITCODE", "NO");
+        project.WriteToFile(path);
+    }
+#endif
+
 }
