@@ -57,7 +57,7 @@ Dit zijn ontwerpkeuzes voor dit project, geen algemene rangschikking van AR-tech
 | Vraag | Huidige bevinding | Nog te controleren |
 | --- | --- | --- |
 | Compileert de Unity-code? | Ja, met Unity 6000.3.24f1 en Vuforia 11.4.4 | Nieuwe wijzigingen opnieuw controleren |
-| Werken de puzzelregels? | Twintig geautomatiseerde controles geslaagd | Volledige bediening in Play Mode |
+| Werken de puzzelregels? | 34 geautomatiseerde controles geslaagd | Volledige bediening in Play Mode |
 | Kan Unity voor Flutter exporteren? | Android-export geslaagd met Flutter Embed | Cameraketen op echt toestel |
 | Hoe werkt de communicatie? | JSON met versie, missie en unieke sessie; Dart-contract getest | Callback van native Unity op toestel |
 | Hoe bewaren we voortgang? | SQLite met unieke missie-ID; tests slagen | Herstart van geïnstalleerde mobiele app |

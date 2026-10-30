@@ -19,3 +19,11 @@
   van de gebruiker. De originele export staat in `unity/Database`; de XML en DAT
   zijn geïmporteerd onder `Assets/StreamingAssets/Vuforia`. Alle drie de targets
   zijn in Target Manager Active en hebben een fysieke breedte van 0.20 meter.
+
+## Spelupdate 30 oktober 2026
+
+De nieuwe drones, reactor, ringen, vonken en geluiden zijn in dit project gemaakt.
+De 3D-vormen worden in de Unity-editor opgebouwd met primitives en één eigen
+ringmesh. Korte geluiden worden door `MissionEffects` uit sinusgolven opgebouwd;
+er zijn geen gedownloade muzieknummers of externe 3D-modellen toegevoegd.
+De PDF gebruikt dezelfde oorspronkelijke dinokaarten als de database.

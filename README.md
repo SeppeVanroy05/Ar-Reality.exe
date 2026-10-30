@@ -53,9 +53,16 @@ bewaart gegevens. Zie [Code begrijpen](docs/CODE_BEGRIJPEN.md) voor voorbeelden.
 
 | ID | Missie | Puzzel in Unity | Kaart | XP |
 | --- | --- | --- | --- | --- |
-| `glitch_001` | Mini Black Hole | Activeer drie verschillende energiepunten | `stegosaurus.png` | 100 |
-| `glitch_002` | Gravity Error | Tik 3 → 1 → 2; een fout reset de reeks | `triceratops.png` | 150 |
-| `glitch_003` | Entity Escaped | Raak het bewegende wezen drie keer | `tyrannosaurus.png` | 200 |
+| `glitch_001` | Mini Black Hole | Laad drie draaiende kernen op tijdens hun open tijdvenster | `stegosaurus.png` | 100 |
+| `glitch_002` | Gravity Error | Speel drie steeds langere lichtcodes na | `triceratops.png` | 150 |
+| `glitch_003` | Entity Escaped | Ontwijk lokvogels en raak het wezen wanneer zijn schild open is | `tyrannosaurus.png` | 200 |
+
+De spellen hebben bewegende objecten, holografische ringen, korte geluidseffecten,
+vonken bij treffers en een eigen eindanimatie. Een compacte Unity-HUD toont de
+huidige opdracht en voortgang. Spelregels en effecten blijven aparte componenten.
+
+[Download de kaartjes met de nieuwe spelregels](docs/kaartjes/REALITY_EXE_kaartjes.pdf).
+De herkenningsafbeeldingen zijn hetzelfde; bestaande afdrukken blijven werken.
 
 De dinokaarten zijn voorlopige herkenningskaarten uit de aangeleverde workshop.
 De 3D-inhoud hoort bij REALITY.EXE. Je kunt later eigen glitchkaarten toevoegen.

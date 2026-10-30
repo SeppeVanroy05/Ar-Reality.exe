@@ -18,6 +18,7 @@ public static class PreviewReality
         {
             mission.SetTracked(true);
             mission.Begin();
+            mission.AdvanceTime(0.4f);
             var render = new RenderTexture(720, 960, 24);
             camera.targetTexture = render;
             camera.Render();

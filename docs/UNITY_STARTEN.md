@@ -27,9 +27,9 @@ De ARMv7-controle is aangepast zoals in de cursus, omdat we alleen ARM64 gebruik
 
 1. Open `Assets/Reality/Scenes/Training.unity`.
 2. Druk op Play en kies in Game View een portretformaat, bijvoorbeeld 540 × 960.
-3. Klik op de energiepunten. Eén punt tweemaal aanklikken telt maar één keer.
-4. Kies Missie 2 en klik op de blokken 3 → 1 → 2.
-5. Kies Missie 3 en klik drie keer op het bewegende wezen.
+3. Volg de oplichtende kern. Klik tweemaal tijdens het mintgroene tijdvenster; verzegel drie kernen.
+4. Kies Missie 2, onthoud de lichtcode en speel hem na. Elke ronde wordt langer; Code herhalen speelt de huidige ronde opnieuw.
+5. Kies Missie 3, vermijd de rode lokvogels en vang het mintgroene wezen driemaal wanneer het paarse schild open is.
 
 De oefenmodus gebruikt Unity, maar geen Vuforia. Er worden geen resultaten naar
 Flutter gestuurd. Stop Play voordat je scènes of instellingen wijzigt.

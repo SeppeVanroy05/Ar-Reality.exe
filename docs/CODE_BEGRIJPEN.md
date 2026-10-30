@@ -67,12 +67,12 @@ een `setState` op een pagina die de gebruiker al gesloten heeft.
 ## 7. Hoe loopt één missie door de app?
 
 1. Je kiest Mini Black Hole op de Flutter-detailpagina.
-2. De scanner vraagt de Android-runner om het Unity-scherm te openen.
+2. De scanner vraagt de mobiele runner om het Unity-scherm te openen.
 3. Unity meldt dat het klaar is; Flutter stuurt de missie-ID en een nieuwe sessie-ID.
 4. Vuforia herkent de kaart. Unity plaatst het zwarte gat op het Image Target.
 5. `PointerInput` schiet een onzichtbare straal vanuit de camera door je tikpositie.
 6. Een `TapTarget` op de collider geeft de tik door aan `BlackHoleMission`.
-7. De puzzel telt drie verschillende energiepunten en meldt voltooiing.
+7. De puzzel controleert timing en ladingen. Drie verzegelde kernen melden voltooiing.
 8. `RealityBridge` stuurt een JSON-bericht naar Flutter.
 9. `ArBridge` controleert of missie, sessie en aantal stappen kloppen.
 10. `GameService` bewaart de herstelling via de repository.
@@ -85,14 +85,20 @@ controle tegen verkeerde of dubbele callbacks, geen beveiliging tegen cheats.
 ## 8. Waar vind ik de Unity-code?
 
 - `GlitchMission`: gedeelde start-, stop-, tracking- en voltooiingsregels.
-- `BlackHoleMission`: elk energiepunt telt één keer.
-- `GravityMission`: controleert de volgorde 3 → 1 → 2.
-- `EntityMission`: beweegt het wezen en telt drie treffers.
+- `BlackHoleMission`: draaiende kernen, twee ladingen per kern en een tijdvenster.
+- `GravityMission`: toont lichtcodes van twee, drie en vier knoppen en controleert de invoer.
+- `EntityMission`: beweegt het wezen en de lokvogels, regelt het schild en telt drie geldige treffers.
 - `PointerInput`: muis/touch omzetten naar een 3D-raycast.
 - `TargetTracking`: trackingstatus doorgeven aan de puzzel.
 - `ArBootstrap`: Vuforia starten; de Image Targets staan vooraf ingesteld in de scène.
 - `RealityBridge`: starten vanuit Flutter en resultaten terugsturen.
-- `MissionHud`: kleine uitleg en voortgang binnen Unity.
+- `MissionHud`: compacte speluitleg, drie voortgangsbalkjes en de knop om een lichtcode te herhalen.
+- `MissionEffects`: ringen, vonken en korte geluiden; deze klasse beslist niet of een actie juist is.
+
+De drie spellen houden dezelfde uitkomst aan: drie voltooide fases. Daardoor blijft het
+bericht naar Flutter hetzelfde. `AdvanceTime` verplaatst de spelklok en animaties;
+`Update` roept dat elke frame aan. De editorcontroles kunnen diezelfde klok gericht
+vooruitzetten om schilden, lichtcodes en kaartverlies te testen.
 
 De editorbestanden onder `Assets/Reality/Editor` zijn hulpmiddelen voor het
 maken en controleren van scènes. Je hoeft die niet eerst te begrijpen om de

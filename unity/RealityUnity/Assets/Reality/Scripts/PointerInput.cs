@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PointerInput : MonoBehaviour
 {
     public Camera sceneCamera;
-    public float topHudFraction = 0.27f;
 
     private void Update()
     {
@@ -15,7 +14,7 @@ public class PointerInput : MonoBehaviour
         else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             position = Mouse.current.position.ReadValue();
         else return;
-        if (position.y > Screen.height * (1 - topHudFraction)) return;
+        if (MissionHud.BlocksPointer(position)) return;
         Ray ray = sceneCamera.ScreenPointToRay(position);
         if (!Physics.Raycast(ray, out RaycastHit hit)) return;
         TapTarget target = hit.collider.GetComponent<TapTarget>();

@@ -7,10 +7,10 @@ const glitches = <Glitch>[
     name: 'Mini Black Hole',
     description:
         'Een zwart gat slokt stukjes van de simulatie op. '
-        'Activeer de drie energiepunten om het te sluiten.',
+        'Laad de draaiende energiekernen op om het te sluiten.',
     difficulty: 'Makkelijk',
     instruction:
-        'Tik op de drie verschillende energiepunten rond het zwarte gat.',
+        'Laad elke kern tweemaal wanneer hij mintgroen oplicht. Volg de actieve kern en verzegel ze alle drie.',
     targetFile: 'stegosaurus.png',
     xp: 100,
     steps: 3,
@@ -19,11 +19,11 @@ const glitches = <Glitch>[
     id: 'glitch_002',
     name: 'Gravity Error',
     description:
-        'Een kubus hangt vast in de lucht. De zwaartekrachtcode '
-        'is verwisseld. Herstel de code om de kubus te laten landen.',
+        'Een reactor zweeft in losse stukken. De zwaartekrachtcode '
+        'is beschadigd. Onthoud drie lichtcodes om de reactor te herstellen.',
     difficulty: 'Gemiddeld',
     instruction:
-        'Tik op de knoppen in deze volgorde: 3 → 1 → 2. Een fout begint de reeks opnieuw.',
+        'Kijk naar de oplichtende knoppen en speel de code na. Elke ronde wordt langer. Gebruik Code herhalen als je het even kwijt bent.',
     targetFile: 'triceratops.png',
     xp: 150,
     steps: 3,
@@ -33,10 +33,10 @@ const glitches = <Glitch>[
     name: 'Entity Escaped',
     description:
         'Een digitaal wezen is uit een portaal ontsnapt. '
-        'Het springt van plaats naar plaats. Vang het drie keer.',
+        'Het ontwijkt je tussen rode lokvogels. Doorbreek zijn schild en vang het.',
     difficulty: 'Gemiddeld',
     instruction:
-        'Tik drie keer op het bewegende wezen. Na elke tik verplaatst het zich.',
+        'Raak het wezen met de mintgroene ogen als zijn paarse schild open is. Vermijd rode lokvogels en laad het vangstveld drie keer.',
     targetFile: 'tyrannosaurus.png',
     xp: 200,
     steps: 3,
